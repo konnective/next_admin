@@ -45,6 +45,14 @@
 
                 cursor: pointer;
 
+                .hl{
+                    background-color: rebeccapurple;
+                    .icon {
+                        color: aliceblue;
+                    }
+                }
+               
+
                 &:hover {
                     background-color: rebeccapurple;
 
@@ -62,6 +70,8 @@
                 }
 
             }
+
+            
         }
     }
 }

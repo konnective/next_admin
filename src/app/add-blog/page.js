@@ -1,4 +1,13 @@
+"use client"
+
+import Link from "next/link";
+
+
 export default function AddBlog() {
+
+  const handleBack = () => {
+    window.history.back();
+  }
   return (
     <div>
       <form class="w-4/5 m-3 mx-auto" enctype="multipart/form-data">
@@ -26,7 +35,7 @@ export default function AddBlog() {
             />
           </div>
         </div>
-        <div class="mb-6">
+        <div class="m-3">
           <input
             type="file"
             class="border border-gray-200 rounded p-2 "
@@ -45,14 +54,15 @@ export default function AddBlog() {
         </div>
         <div class="mb-6"></div>
         <div class="mb-6">
-          <button class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
+          <button class="bg-blue-500 text-white rounded py-2 px-4 hover:bg-black">
             Submit
           </button>
-
-          <a href="" class="text-black ml-4">
-            {' '}
-            Back{' '}
-          </a>
+          <Link href="#" class="text-black ml-4" onClick={(e) => {
+            e.preventDefault();
+            window.history.back();
+          }}>
+            Back
+          </Link>
         </div>
       </form>
     </div>
