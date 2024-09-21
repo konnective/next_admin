@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const TableList = () => {
+const TableList = ({ data }) => {
   return (
     <div className="relative overflow-x-auto m-3">
       <Link href="/add-blog">
@@ -22,23 +22,36 @@ const TableList = () => {
               Category
             </th>
             <th scope="col" className="px-6 py-3">
-              Price
+              Action
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <th
-              scope="row"
-              className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          {data.map((item) => (
+            <tr
+              key={item.id}
+              className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
             >
-              Apple MacBook Pro 1
-            </th>
-            <td className="px-6 py-4">Silver</td>
-            <td className="px-6 py-4">Laptop</td>
-            <td className="px-6 py-4">$2999</td>
-          </tr>
-          <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <th
+                scope="row"
+                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+              >
+                {item?.title}
+              </th>
+              <td className="px-6 py-4">{item?.author}</td>
+              <td className="px-6 py-4">{item?.topic}</td>
+              <td className="px-6 py-4">
+                <button className="bg-green-500 text-white py-2 px-4 content-evenly rounded-md my-4">
+                  Edit Blog
+                </button>
+                <button className="bg-red-500 text-white mx-2 py-2 px-4 content-evenly rounded-md my-4">
+                  Delete Blog
+                </button>
+              </td>
+            </tr>
+          ))}
+
+          {/* <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
             <th
               scope="row"
               className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -59,7 +72,7 @@ const TableList = () => {
             <td className="px-6 py-4">Black</td>
             <td className="px-6 py-4">Accessories</td>
             <td className="px-6 py-4">$99</td>
-          </tr>
+          </tr> */}
         </tbody>
       </table>
     </div>
