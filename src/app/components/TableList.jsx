@@ -41,9 +41,12 @@ const TableList = ({ data }) => {
               <td className="px-6 py-4">{item?.author}</td>
               <td className="px-6 py-4">{item?.topic}</td>
               <td className="px-6 py-4">
-                <button className="bg-green-500 text-white py-2 px-4 content-evenly rounded-md my-4">
-                  Edit Blog
-                </button>
+                <Link href={`edit-blog/${item.id}`}>
+                  <button className="bg-green-500 text-white py-2 px-4 content-evenly rounded-md my-4">
+                    Edit Blog
+                  </button>
+                </Link>
+
                 <button className="bg-red-500 text-white mx-2 py-2 px-4 content-evenly rounded-md my-4">
                   Delete Blog
                 </button>
